@@ -1,15 +1,10 @@
 # -*- coding: utf-8 -*-
 import json
+import pandas as pd
 
-with open('Brexit_2021.json', 'r') as json_file, open('Brexit_2021.csv', 'w+') as csv_file:
-    lines = json_file.readlines()
-    for i in range(len(lines)):
-        line_object = json.loads(lines[i])
-        line_docs = line_object['response']['docs']
+with open('Brexit_2016.json', 'r') as json_file:
+    js_content = json.loads(json_file)
 
-        for ii in range(len(line_docs)):
-            doc_object = line_docs[ii]
-            web_url = doc_object['web_url']
-
-            csv_file.write(web_url)
-            csv_file.write('\n')
+    data_raw = pd.DataFrame(js_content)
+    data_raw.set_index(keys = 'data', inplace = True)
+    data_raw.to_csv('Brexit_2016.csv')

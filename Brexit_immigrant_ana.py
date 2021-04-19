@@ -48,7 +48,7 @@ def wordcount(words, dct):
     return count
 
 
-# 获取单词的词性
+# Get the lexical properties of words
 def get_wordnet_pos(tag):
     if tag.startswith('J'):
         return wordnet.ADJ
@@ -68,7 +68,6 @@ brexit_string = ''
 rootdir = 'doc_' + year
 list = os.listdir(rootdir)
 for i in range(len(list)):
-    # path表示"根路径+rootdir+list[i]"，也就是第i个文件的完整根路径
     path = os.path.join(rootdir, list[i])
     with open(path, 'r', encoding='utf-8') as brexit_read:
         content = brexit_read.read()

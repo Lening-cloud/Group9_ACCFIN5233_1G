@@ -23,6 +23,6 @@ To make data more readily, we design this simple module, to transform raw JSON d
 - Brexit_arti.py:
 This file reads raw JSON data, parses to get URLs of the articles, downloads and extract the intact content of each article. 
 
-- Brexit_currency_ana.py, Brexit_immigrant_ana.py, Brexit_policy_ana.py, Brexit_text_ana.py
+- Brexit_immigrant_ana.py, Brexit_policy_ana.py, Brexit_text_ana.py
 These are codes of analysis. Each of them will output some statistics file and wordcloud picture into folder result_{type}_{year}. 
 

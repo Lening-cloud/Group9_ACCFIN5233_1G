@@ -2,17 +2,16 @@ import json
 from lxml import etree
 import requests
 
-# 1. 通过url拿到网页(homework)
-# requests.get()
+# 1. Get the page by url
 # use sleep if need, if HTTP 429/404/500 happens
 def proceed_url(web_url):
     response = requests.get(web_url)
     content = response.content
     return content
 
-# 2. 定位section
+# 2. Positioning section
 # content=dom.path('//*[@id="story"]/section')
-# 3. 解析section里面的p
+# 3. parsing p in section
 # dom.xml()
 def proceed_html(html_content):
     full_content = ''
@@ -29,7 +28,7 @@ def proceed_html(html_content):
 
     return full_content
 
-# 4. 写到文件里
+# 4. write to file
 def write_to_file(file_name, content):
     with open(file_name,'w+') as f:
         f.write(content)
@@ -39,7 +38,7 @@ def write_to_file(file_name, content):
 ############################################################
 
 # 0.1
-# 从json里拿到url
+# gain url from json
 file = open('Brexit_2016.json', 'r')
 lines = file.readlines()
 # for each page
